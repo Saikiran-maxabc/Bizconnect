@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BizConnect - Connecting Innovators</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.92), rgba(245, 245, 255, 0.92)),
+        url('https://images.unsplash.com/photo-1522202222228-81aad6c6c204?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #333;
+    }
+
+    header {
+      background-color: #004d99;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #007acc;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .section {
+      padding: 2rem;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      backdrop-filter: blur(5px);
+      border-top: 1px solid #ccc;
+    }
+
+    #hero.section {
+      background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    }
+
+    #explore.section {
+      background-image: url('https://images.unsplash.com/photo-1581092334421-8a02f8648c79?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    }
+
+    #auth.section {
+      background-image: url('https://images.unsplash.com/photo-1591696331119-f07f8d6720f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    }
+
+    #contact.section {
+      background-image: url('https://images.unsplash.com/photo-1551836022-4c4c79ecde62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    }
+
+    .section.active {
+      display: flex;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #ffffff, #f4f7fb);
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      margin: 1rem;
+      width: 80%;
+      max-width: 600px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.015);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .btn {
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #005fa3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #004d99;
+      color: white;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      function showSection(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        const section = document.querySelector(id);
+        if (section) section.classList.add('active');
+      }
+
+      document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          const href = link.getAttribute("href");
+          history.pushState(null, '', href);
+          showSection(href);
+        });
+      });
+
+      showSection(location.hash || "#hero");
+      window.addEventListener("popstate", () => showSection(location.hash || "#hero"));
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to BizConnect</h1>
+    <p>Where Innovators Meet Marketers</p>
+  </header>
+
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#explore">Explore</a>
+    <a href="#auth">Connect</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+
+  <section id="hero" class="section active">
+    <div class="card">
+      <h2>For Business Owners & Professionals</h2>
+      <p>Discover top marketers to scale your products. Build connections that drive growth.</p>
+    </div>
+    <div class="card">
+      <h2>For Marketers</h2>
+      <p>Connect with innovators and businesses looking for your expertise. Make meaningful impact.</p>
+    </div>
+    <div class="card">
+      <h2>For Investors</h2>
+      <p>Find promising startups and emerging businesses ready for investment.</p>
+    </div>
+    <div class="card">
+      <h2>Join Us</h2>
+      <p>Be a part of the future of business networking. Grow with BizConnect.</p>
+    </div>
+  </section>
+
+  <section id="explore" class="section">
+  <div class="card">
+    <h2>Opportunities You Can Explore</h2>
+    <p>At BizConnect, we empower you to:</p>
+    <ul>
+      <li>💼 Collaborate with top-tier marketers and businesses.</li>
+      <li>🌐 Showcase your portfolio to a global network.</li>
+      <li>🚀 Launch and scale your products with expert marketing support.</li>
+      <li>📊 Access insights and tools to optimize your reach.</li>
+      <li>🤝 Network with investors, entrepreneurs, and professionals across industries.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Why Choose BizConnect?</h3>
+    <ul>
+      <li>🔍 Curated matches between innovators and marketers.</li>
+      <li>🎯 Focused targeting for better conversion and reach.</li>
+      <li>💬 Direct messaging and collaboration tools.</li>
+      <li>🔒 Secure and professional platform built for business networking.</li>
+    </ul>
+  </div>
+</section>
+
+  <section id="auth" class="section">
+    <div class="card">
+      <h2>Create Your Profile</h2>
+      <input type="text" placeholder="Full Name" /><br />
+      <input type="email" placeholder="Email" /><br />
+      <input type="password" placeholder="Password" /><br />
+      <button class="btn">Create Profile</button>
+    </div>
+
+    <div class="card">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" /><br />
+      <input type="password" placeholder="Password" /><br />
+      <button class="btn">Login</button>
+    </div>
+
+    <div class="card">
+      <h2>Sign Up</h2>
+      <input type="text" placeholder="Full Name" /><br />
+      <input type="email" placeholder="Email" /><br />
+      <input type="password" placeholder="Password" /><br />
+      <button class="btn">Sign Up</button>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="card">
+      <h2>Contact Us</h2>
+      <p>Have questions or ideas? Reach out to us!</p>
+      <p><strong>Email:</strong> saikiran.j2007@gmail.com</p>
+      <p><strong>Phone:</strong> +91 9987403394</p>
+      <textarea rows="5" placeholder="Write your message here..."></textarea><br />
+      <button class="btn">Send Message</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 BizConnect. All rights reserved.</p>
+  </footer>
+</body>
